@@ -70,4 +70,18 @@
         <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
         <requires eq="libatomic-%-mingw32-dll-1.tar" />
     </installed>
+    <installed tarname="libstdc++-6.3.0-1-mingw32-dll-6.tar.xz" />
+    <installed tarname="gcc-c++-4.8.2-mingw32-dev.tar.meta">
+        <download tarname="none" />
+    </installed>
+    <installed tarname="gcc-c++-6.3.0-1-mingw32-bin.tar.xz">
+        <requires le="gcc-c++-%-mingw32-dev.tar" />
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <requires eq="mingw32-libstdc++-%-mingw32-dll-6.tar" />
+    </installed>
+    <installed tarname="lua-5.2.0-1-mingw32-dll-52.tar.xz" />
+    <installed tarname="lua-5.2.0-1-mingw32-bin.tar.xz">
+        <requires eq="lua-%-mingw32-dll-52.tar" />
+    </installed>
+    <installed tarname="lua-5.2.0-1-mingw32-dev.tar.xz" />
 </sysroot>
