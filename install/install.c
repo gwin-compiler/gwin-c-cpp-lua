@@ -35,7 +35,7 @@ int main() {
     }
     system("cd C:/ && git clone https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
     rename("C:/gwin-c-cpp-lua", "C:/gwin");
-    system("setx PATH \"%PATH%;C:/gwin/bin\"");
+    system('setx PATH "%PATH%;C:\gwin\bin"');
     printf("gwin compiler installed successfully.\n");
 
     return 0;
