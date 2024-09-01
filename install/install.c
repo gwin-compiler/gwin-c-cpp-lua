@@ -24,9 +24,9 @@ int main() {
     if (IsRunAsAdmin())
     {
         if (system("git --version") == 1) { 
-        printf("Git not found. Please install Git.\n");
-        return 1;
-    }
+            printf("Git not found. Please install Git.\n");
+            return 1;
+        }
     }
     else
     {
@@ -34,8 +34,8 @@ int main() {
         return 1;
     }
     system("cd C:/ && git clone https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
-    system("cd C:/ && mv gwin-c-cpp-lua gwin");
-    system('setx PATH "%PATH%;C:/gwin/bin"');
+    rename("C:/gwin-c-cpp-lua", "C:/gwin");
+    system("setx PATH \"%PATH%;C:/gwin/bin\"");
     printf("gwin compiler installed successfully.\n");
 
     return 0;
