@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdbool.h>
 
-BOOL IsRunAsAdmin()
+bool IsRunAsAdmin()
 {
     BOOL isAdmin = FALSE;
     PSID adminGroup = NULL;
@@ -20,7 +20,7 @@ BOOL IsRunAsAdmin()
 }
 
 int main() {
-    printf("Installing gwin compiler...\n")
+    printf("Installing gwin compiler...\n");
     if (IsRunAsAdmin())
     {
         if (system("git --version") == 1) { 
@@ -34,7 +34,7 @@ int main() {
         return 1;
     }
     system("cd C:/ && git clone https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
-    system("cd C:/ && mv gwin-c-cpp-lua gwin")
+    system("cd C:/ && mv gwin-c-cpp-lua gwin");
     system('setx PATH "%PATH%;C:/gwin/bin"');
     printf("gwin compiler installed successfully.\n");
 
