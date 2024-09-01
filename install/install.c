@@ -20,7 +20,7 @@ bool IsRunAsAdmin()
 }
 
 int main() {
-    printf("Installing gwin compiler 1.0...\n");
+    printf("Installing gwin compiler 1.0.0...\n");
     if (IsRunAsAdmin())
     {
         if (system("git --version") == 1) { 
@@ -35,7 +35,7 @@ int main() {
         Sleep(4000);
         return 1;
     }
-    system("cd C:/ && git clone --branch <tag_name> --single-branch <repository_url>");
+    system("cd C:/ && git clone --branch 1.0.0 --single-branch https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
     rename("C:/gwin-c-cpp-lua", "C:/gwin");
 
     // Create a batch file to set the PATH environment variable
