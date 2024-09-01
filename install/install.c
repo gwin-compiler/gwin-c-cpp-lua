@@ -33,9 +33,10 @@ int main() {
         printf("The program is not running as administrator.\n");
         return 1;
     }
-    system("cd C:/ && mkdir gwin");
     system("cd C:/ && git clone https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
+    system("cd C:/ && mv gwin-c-cpp-lua gwin")
     system('setx PATH "%PATH%;C:/gwin/bin"');
+    printf("gwin compiler installed successfully.\n");
 
     return 0;
 }
