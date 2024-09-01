@@ -20,23 +20,53 @@ bool IsRunAsAdmin()
 }
 
 int main() {
-    printf("Installing gwin compiler...\n");
+    printf("Installing gwin compiler 1.0...\n");
     if (IsRunAsAdmin())
     {
         if (system("git --version") == 1) { 
             printf("Git not found. Please install Git.\n");
+            Sleep(4000);
             return 1;
         }
     }
     else
     {
         printf("The program is not running as administrator.\n");
+        Sleep(4000);
         return 1;
     }
-    system("cd C:/ && git clone https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
+    system("cd C:/ && git clone --branch <tag_name> --single-branch <repository_url>");
     rename("C:/gwin-c-cpp-lua", "C:/gwin");
-    system('setx PATH "%PATH%;C:\\gwin\\bin"');
+
+    // Create a batch file to set the PATH environment variable
+    FILE *batchFile = fopen("set_path.bat", "w");
+    if (batchFile != NULL) {
+        fprintf(batchFile, "@echo off\n");
+        fprintf(batchFile, "set NEW_PATH=%%PATH%%;C:\\gwin\\bin\n");
+        fprintf(batchFile, "setx PATH \"%%NEW_PATH%%\"\n");
+        fprintf(batchFile, "echo PATH updated successfully.\n");
+        fclose(batchFile);
+
+        // Execute the batch file
+        system("set_path.bat");
+
+        // Delete the batch file
+        if (remove("set_path.bat") == 0) {
+            printf("Batch file deleted successfully.\n");
+        }
+        else {
+            printf("Error deleting batch file.\n");
+        }
+    }
+    else {
+        printf("Error creating batch file.\n");
+        return 1;
+    }
+
     printf("gwin compiler installed successfully.\n");
+
+    // Wait for 4 seconds before closing
+    Sleep(4000);
 
     return 0;
 }
