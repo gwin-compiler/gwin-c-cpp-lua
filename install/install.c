@@ -35,6 +35,12 @@ int main() {
         Sleep(4000);
         return 1;
     }
+    if (system("if exist C:\\gwin (rmdir /S /Q C:\\gwin)") == 0) {
+    printf("C:/gwin folder deleted successfully.\n");
+}
+else {
+    printf("Error deleting C:/gwin folder.\n");
+}
     system("cd C:/ && git clone --branch 1.5.0 --single-branch https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
     rename("C:/gwin-c-cpp-lua", "C:/gwin");
 
