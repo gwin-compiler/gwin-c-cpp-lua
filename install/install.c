@@ -35,7 +35,7 @@ int main() {
         Sleep(4000);
         return 1;
     }
-    system("cd C:/ && git clone --branch 1.0.0 --single-branch https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
+    system("cd C:/ && git clone --branch 1.5.0 --single-branch https://github.com/gwin-compiler/gwin-c-cpp-lua.git");
     rename("C:/gwin-c-cpp-lua", "C:/gwin");
 
     // Create a batch file to set the PATH environment variable
